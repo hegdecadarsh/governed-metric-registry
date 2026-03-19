@@ -1,175 +1,155 @@
-# governed-metric-registry
-Trusted metrics for human and AI - Governed at the source
+# 🧭 Governed Metric Registry  
+**Trusted metrics for humans and AI — governed at the source**
 
-Overview 
+---
 
-Governed Metric Registry is a Snowflake-native platform for defining, approving, governing, and consuming enterprise business metrics. 
+## 📌 Overview  
 
-Unlike traditional semantic layers that focus on query abstraction for BI tools, this project focuses on metric trust and decision governance: 
+**Governed Metric Registry** is a **Snowflake-native platform** for defining, approving, governing, and consuming enterprise business metrics.
 
-Metrics are defined once 
+Unlike traditional semantic layers that focus on query abstraction for BI tools, this project focuses on **metric trust and decision governance**:
 
-Explicitly approved by the business 
+- ✅ Metrics are defined once  
+- ✅ Explicitly approved by the business  
+- ✅ Executed centrally in Snowflake  
+- ✅ Safely consumed by BI tools, Streamlit apps, and AI agents  
+- ✅ Enforced with role-aware access controls  
 
-Executed centrally in Snowflake 
+The registry ensures that **humans and AI always compute metrics consistently**, without exposing raw data or embedding logic in dashboards.
 
-Safely consumed by BI tools, Streamlit apps, and AI agents 
+---
 
-Enforced with role-aware access controls 
+## ⚖️ What This Is (and Is Not)
 
-The registry ensures that humans and AI always compute metrics consistently, without exposing raw data or embedding logic in dashboards. 
+### ✅ What this project *is*
 
-What This Is (and Is Not) 
+- Central registry of **approved business metrics**
+- Governance layer for **KPI definitions and ownership**
+- Execution control plane for **metrics in Snowflake**
+- AI-safe interface for **natural-language metric queries**
+- Single source of truth for **enterprise KPIs**
 
-What this project is 
+---
 
-A central registry of approved business metrics 
+### ❌ What this project *is not*
 
-A governance layer for KPI definitions and ownership 
+- Not a BI semantic layer replacement  
+- Not a dimension / join modeling framework  
+- Not dashboard-specific  
+- Not free-form SQL over raw tables  
 
-An execution control plane for metrics in Snowflake 
+> 💡 **Semantic layers optimize query usability.**  
+> 💡 **Governed metric registries optimize decision trust.**
 
-An AI-safe interface for natural-language metric queries 
+---
 
-A single source of truth for enterprise KPIs 
+## 🚀 Key Capabilities  
 
-What this project is not 
+### 🧩 Governed Metric Definitions  
 
-Not a BI semantic layer replacement 
+- Central **table-driven registry** of metric SQL  
+- Business ownership and approval metadata  
+- Domain, grain, and description per metric  
+- Version-ready design *(future-proof)*  
 
-Not a dimension / join modeling framework 
+---
 
-Not dashboard-specific 
+### 🔐 Role-Aware Enforcement  
 
-Not free-form SQL over raw tables 
+- Metrics execute only if the caller’s **Snowflake role is authorized**  
+- Built on:
+  - Snowflake RBAC  
+  - Row Access Policies  
+  - Masking Policies  
+- No hardcoded filters or application-level logic  
 
-Semantic layers optimize query usability. Governed metric registries optimize decision trust. 
+---
 
-Key Capabilities 
+### 🤖 AI-Assisted Metric Access  
 
-Governed Metric Definitions 
+- Natural language → SQL translation  
+- AI can execute **only approved metrics**  
+- Built-in refusal behavior when:
+  - Metric is not registered  
+  - Role is not authorized  
+  - Query attempts raw data access  
 
-Central table-driven registry of metric SQL 
+---
 
-Business ownership and approval metadata 
+### 🖥️ Streamlit Governance UI  
 
-Domain, grain, and description per metric 
+- Register metrics  
+- Approve or disable metrics  
+- Assign metric ownership  
 
-Version-ready design (future-proof) 
+> No direct SQL editing required by business users.
 
-Role-Aware Enforcement 
+---
 
-Metrics execute only if the caller’s Snowflake role is authorized 
+### 📊 Auditability & Compliance  
 
-Built on Snowflake RBAC, Row Access Policies, and Masking Policies 
+- Clear ownership per metric  
+- Centralized execution path  
+- Compatible with:
+  - Snowflake Access History  
+  - Query Logs  
 
-No hardcoded filters or application-level logic 
+---
 
-AI-Assisted Metric Access 
+## 🏗️ High-Level Architecture  
 
-Natural language questions translated into SQL 
+![Governed Metric Registry Architecture](./assets/architecture.png)
 
-AI can execute only approved metrics 
 
-Refusal behavior when metric is not registered, role is not authorized, or the question attempts raw data access 
+**Core Principle:**
 
-Streamlit Governance UI 
+> Consumers never query raw tables directly.  
+> They query metrics — and the registry controls:
+> - What SQL is allowed  
+> - Who can run it  
+> - What data is visible  
 
-Register metrics 
+---
 
-Approve or disable metrics 
+## 🤖 AI Governance Model  
 
-Assign metric ownership 
+**AI Access Rules:**
 
-No direct SQL editing required by business users. 
+- ✅ AI can only reference registered metrics  
+- ❌ AI cannot invent SQL  
+- ❌ AI cannot query raw tables  
+- ✅ AI must respect Snowflake role permissions  
 
-Auditability & Compliance 
+---
 
-Clear ownership per metric 
+## ⚡ Getting Started (High Level)
 
-Centralized execution path 
+1. Deploy registry tables and procedures in Snowflake  
+2. Apply security policies  
+3. Launch Streamlit governance UI  
+4. Register and approve initial metrics  
+5. Connect BI tools or AI agents  
 
-Compatible with Snowflake access history and query logs 
+---
 
-High-Level Architecture 
+## 📜 License  
 
-Users / BI / AI → Governed Metric Registry → Approved Metric SQL Execution → Snowflake (Secure Views / Policies) 
+This project is licensed under the **Apache License 2.0**.  
+See the `LICENSE` file for details.
 
-Core principle: Consumers never query raw tables directly. They query metrics, and the registry decides what SQL is allowed, who can run it, and what data is visible. 
+---
 
-Example: Governed Metric Execution 
+## 💡 Why This Matters  
 
-CALL RUN_METRIC(metric_name => 'TOTAL_NET_REVENUE', filters => OBJECT_CONSTRUCT('quarter', 'Q4')); 
+> Inconsistent metrics break trust.  
+> Uncontrolled AI amplifies inconsistency.
 
-AI Governance Model 
+**Governed Metric Registry ensures:**
 
-AI access rules: 
+- ✅ One definition per KPI  
+- ✅ Business ownership  
+- ✅ AI with guardrails  
+- ✅ Snowflake-native enforcement  
 
-AI can only reference registered metrics 
+---
 
-AI cannot invent SQL 
-
-AI cannot query raw tables 
-
-AI must respect Snowflake role permissions 
-
-Integration Patterns 
-
-BI Tools 
-
-Tableau / Power BI / Looker consume metric views 
-
-Metric logic stays centralized 
-
-Streamlit Apps 
-
-Dashboards built directly on governed metrics 
-
-AI / LLMs 
-
-Natural language to governed metric execution 
-
-No hallucinated KPIs 
-
-Technology Stack 
-
-Snowflake: Secure Views, Row Access Policies, Masking Policies, Stored Procedures 
-
-Streamlit in Snowflake: Governance UI 
-
-Snowflake Cortex: Natural language interpretation (optional) 
-
-
-Getting Started (High Level) 
-
-Deploy registry tables and procedures in Snowflake 
-
-Apply security policies 
-
-Launch Streamlit governance UI 
-
-Register and approve initial metrics 
-
-Connect BI tools or AI agents
-
-License 
-
-This project is licensed under the Apache License 2.0. See the LICENSE file for details. 
-
-Why This Matters 
-
-Inconsistent metrics break trust. Uncontrolled AI amplifies inconsistency. 
-
-Governed Metric Registry ensures: 
-
-One definition per KPI 
-
-Business ownership 
-
-AI with guardrails 
-
-Snowflake-native enforcement 
-
-Tagline 
-
-Governed Metric Registry — where metrics are approved before they are computed. 
