@@ -1,0 +1,10 @@
+definition_version: 2
+entities:
+  metric_registry:
+    type: streamlit
+    identifier: METRIC_REGISTRY_APP
+    query_warehouse: COMPUTE_WH
+    main_file: metric_registry_app.py
+    artifacts:
+      - metric_registry_app.py
+      - environment.yml
