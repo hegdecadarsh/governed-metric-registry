@@ -18,6 +18,14 @@ jobs:
     name: Deploy to Snowflake
     runs-on: ubuntu-latest
     environment: production
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE: ACCOUNTADMIN
+      SNOWFLAKE_WAREHOUSE: COMPUTE_WH
+      SNOWFLAKE_DATABASE: METRIC_REGISTRY_DB
+      SNOWFLAKE_SCHEMA: REGISTRY
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,47 +36,15 @@ jobs:
         uses: snowflakedb/snowflake-cli-action@v2.0
 
       - name: Test Snowflake connection
-        env:
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          SNOWFLAKE_ROLE: ACCOUNTADMIN
-          SNOWFLAKE_WAREHOUSE: COMPUTE_WH
-          SNOWFLAKE_DATABASE: METRIC_REGISTRY_DB
-          SNOWFLAKE_SCHEMA: REGISTRY
         run: snow connection test -x
 
       - name: Run metric_registry_git_integration.sql
-        env:
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          SNOWFLAKE_ROLE: ACCOUNTADMIN
-          SNOWFLAKE_WAREHOUSE: COMPUTE_WH
-          SNOWFLAKE_DATABASE: METRIC_REGISTRY_DB
-          SNOWFLAKE_SCHEMA: REGISTRY
         run: snow sql -f metric_registry_git_integration.sql -x
 
       - name: Deploy Streamlit app
-        env:
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          SNOWFLAKE_ROLE: ACCOUNTADMIN
-          SNOWFLAKE_WAREHOUSE: COMPUTE_WH
-          SNOWFLAKE_DATABASE: METRIC_REGISTRY_DB
-          SNOWFLAKE_SCHEMA: REGISTRY
         run: snow streamlit deploy --replace -x
 
       - name: Log deployment via SQL
-        env:
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          SNOWFLAKE_ROLE: ACCOUNTADMIN
-          SNOWFLAKE_WAREHOUSE: COMPUTE_WH
-          SNOWFLAKE_DATABASE: METRIC_REGISTRY_DB
-          SNOWFLAKE_SCHEMA: REGISTRY
         run: |
           snow sql -q "INSERT INTO METRIC_REGISTRY_DB.REGISTRY.GIT_DEPLOYMENT_LOG
             (BRANCH_OR_TAG, APP_NAME, STATUS, DETAILS)
