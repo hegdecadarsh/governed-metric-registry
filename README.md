@@ -152,4 +152,13 @@ See the `LICENSE` file for details.
 - ✅ Snowflake-native enforcement  
 
 ---
+## ✍️ Learn More & Support
+
+If you find this project valuable, you can:
+
+- 📖 Follow my writing on Medium  
+- ☕ Support my work  
+- 💎 Get premium resources  
+
+[![Read on Medium](https://img.shields.io/badge/Read-Medium-black?style=for-the-badge&logo=medium)](https://medium.com/@hegdecadarsh) [![Support & Get Resources](https://img.shields.io/badge/Support-Gumroad-orange?style=for-the-badge&logo=gumroad)](https://adarshhegdcr.gumroad.com/coffee)
 
