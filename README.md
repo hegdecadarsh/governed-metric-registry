@@ -160,5 +160,6 @@ If you find this project valuable, you can:
 - ☕ Support my work  
 - 💎 Get premium resources  
 
-[![Read on Medium](https://img.shields.io/badge/Read-Medium-black?style=for-the-badge&logo=medium)](https://medium.com/@hegdecadarsh) [![Support & Get Resources](https://img.shields.io/badge/Support-Gumroad-orange?style=for-the-badge&logo=gumroad)](https://adarshhegdcr.gumroad.com/coffee)
+[![Read on Medium](https://img.shields.io/badge/Read-Medium-black?style=for-the-badge&logo=medium)](https://medium.com/@hegdecadarsh) [![Support & Get Resources](https://img.shields.io/badge/Support-Gumroad-orange?style=for-the-badge&logo=gumroad)](https://adarshhegdcr.gumroad.com/coffee) [![1:1 Help](https://img.shields.io/badge/1:1-Consultation-blue?style=for-the-badge&logo=calendar)](https://topmate.io/adarsh_hegde/2012625/pay)
+
 
