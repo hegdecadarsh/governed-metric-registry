@@ -132,6 +132,21 @@ The registry ensures that **humans and AI always compute metrics consistently**,
 
 ---
 
+## 📚 Reference & Demo
+
+### 🔗 Medium Article (Detailed Guide)
+Understand the complete architecture and implementation:
+
+<p align="left">
+  <a href="https://medium.com/@hegdecadarsh/how-to-build-a-governed-metric-registry-on-snowflake-trusted-kpis-for-humans-and-ai-a72709809d2a">
+    <img src="https://img.shields.io/badge/📖%20Read%20Full%20Guide%20on-Medium-black?style=for-the-badge&logo=medium" />
+  </a>
+</p>
+
+---
+
+---
+
 ## 📜 License  
 
 This project is licensed under the **Apache License 2.0**.  
